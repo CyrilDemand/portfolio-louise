@@ -11,8 +11,8 @@ export default function Header() {
   const closeMenu = () => setIsMenuOpen(false);
 
   // Fonction utilitaire pour savoir si un lien est actif
-  const isActive = (path) => pathname === path;
-
+    const isActive = (path: string) => pathname === path;
+    
   return (
     <header className="relative flex w-full items-center justify-between bg-white px-6 py-6 md:px-16 md:py-8">
 
