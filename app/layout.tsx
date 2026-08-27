@@ -4,32 +4,37 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Remplace Geist par Quicksand
+import { Quicksand } from "next/font/google";
+
+const quicksand = Quicksand({
+  variable: "--font-quicksand",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body className="flex min-h-screen flex-col bg-stone-50 text-stone-900">
+      <body
+        className={`${quicksand.variable} relative flex min-h-screen flex-col bg-[#FCFAFF] font-sans text-slate-600 selection:bg-violet-200 selection:text-violet-900`}
+      >
+        {/* Optionnel : Un léger motif ou des "taches" de mauve floutées en arrière-plan (glow) */}
+        <div className="pointer-events-none fixed left-0 top-0 h-full w-full overflow-hidden z-[-1]">
+          <div className="absolute -left-[10%] top-[-10%] h-[40%] w-[40%] rounded-full bg-violet-100/50 blur-[100px]" />
+          <div className="absolute bottom-[-10%] right-[-5%] h-[50%] w-[50%] rounded-full bg-fuchsia-50/40 blur-[120px]" />
+        </div>
         
         <Header />
 
-        {/* Le main prend tout l'espace restant (flex-1) */}
-        <main className="flex-1 w-full max-w-7xl mx-auto px-4 py-8">
+        <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6">
           {children}
         </main>
 
         <Footer />
-
       </body>
     </html>
   );

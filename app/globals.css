@@ -24,3 +24,47 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@theme {
+  --color-cream: #fdfcff;
+  --color-accent-50: #f6f2ff;
+  --color-accent-100: #ede6ff;
+  --color-accent-200: #ddd0ff;
+  --color-accent-300: #c4aeff;
+  --color-accent-400: #a78bfa;
+  --color-accent-500: #8b6df0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sélection de texte assortie */
+::selection {
+  background: var(--color-accent-200);
+  color: #3f3355;
+}
+
+/* Scrollbar discrète */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-200);
+  border-radius: 99px;
+  border: 3px solid var(--color-cream);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent-300); }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
