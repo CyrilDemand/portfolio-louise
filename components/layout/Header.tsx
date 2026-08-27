@@ -14,11 +14,11 @@ export default function Header() {
     const isActive = (path: string) => pathname === path;
     
   return (
-    <header className="relative flex w-full items-center justify-between px-6 py-6 md:px-16 md:py-8 ">
+    <header className="relative flex w-full items-center justify-between pl-12 pr-6 py-6 md:pr-16 md:pl-28 md:py-8 sm:pl-12 ">
 
       <Link 
         href="/" 
-        className="flex flex-col text-2xl md:text-3xl font-black leading-none tracking-tight text-indigo-sombre hover:text-framboise  transition-colors z-50"
+        className="flex flex-col text-3xl md:text-4xl font-black leading-none tracking-tight text-indigo-sombre hover:text-framboise  transition-colors z-50"
         onClick={closeMenu}
       >
         <span>Louise</span>
@@ -26,7 +26,7 @@ export default function Header() {
       </Link>
 
       {/* NAVIGATION DESKTOP */}
-      <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-indigo-sombre">
+      <nav className="hidden md:flex items-center gap-8 text-2xl font-medium text-indigo-sombre">
         <Link 
           href="/" 
           className={`border-b-2 pb-1 transition-all ${

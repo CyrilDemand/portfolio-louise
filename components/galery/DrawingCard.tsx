@@ -32,43 +32,41 @@ export default function DrawingCard({ src, label, alt }: DrawingCardProps) {
 
   return (
     <>
-      <figure className="group relative w-full max-w-xs">
-  <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-violet-300/0 to-fuchsia-300/0 opacity-0 blur transition duration-500 group-hover:opacity-100" />
-
-<div className="relative overflow-hidden rounded-3xl border border-violet-100/50 bg-white/60 backdrop-blur-md p-3 shadow-[0_8px_30px_rgba(139,92,246,0.04)] transition-all duration-500 group-hover:-translate-y-2 group-hover:border-violet-200 group-hover:shadow-[0_20px_40px_rgba(139,92,246,0.12)] group-hover:bg-white/80">    <button
-      type="button"
-      onClick={() => setOpen(true)}
-      className="relative block aspect-[4/5] w-full overflow-hidden rounded-xl bg-violet-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2"
-      aria-label={`Agrandir ${label}`}
-    >
-      <Image
-        src={src}
-        alt={alt ?? label}
-        fill
-        placeholder={typeof src === "string" ? undefined : "blur"}
-        sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 320px"
-        className="object-cover transition duration-500 group-hover:scale-105"
-      />
-
-        <span className="absolute inset-0 bg-gradient-to-t  via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
-
-      <span className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-4 whitespace-nowrap rounded-full bg-white/95 px-5 py-2.5 text-xs font-bold text-violet-400 opacity-0 shadow-xl shadow-violet-200/50 backdrop-blur transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-            ✧ Voir le dessin ✧
-        </span>
+      {/* On a enlevé le padding et le fond. Juste un conteneur simple */}
+      <figure className="group relative w-full flex flex-col gap-3 break-inside-avoid">
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          // On a enlevé aspect-[4/5] pour laisser la hauteur naturelle
+          className="relative block w-full overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-framboise focus-visible:ring-offset-2 focus-visible:ring-offset-rose-pastel"
+          aria-label={`Agrandir ${label}`}
+        >
+          <Image
+            src={src}
+            alt={alt ?? label}
+            // On a supprimé 'fill' et remplacé 'object-cover' par 'h-auto w-full'
+            className="h-auto w-full transition duration-500 group-hover:scale-105"
+            placeholder={typeof src === "string" ? undefined : "blur"}
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 320px"
+          />
         </button>
 
-        <figcaption className="px-1 pb-1 pt-4 text-center">
-        <p className="font-semibold tracking-wide ">
+        {
+            /*
+                    <figcaption className="text-center">
+          <p className="font-semibold tracking-wide text-indigo-sombre">
             {label}
-        </p>
-
-        <p className="mt-1 text-xs text-stone-400">
+          </p>
+          <p className="mt-1 text-xs text-indigo-sombre/70">
             Illustration originale
-        </p>
+          </p>
         </figcaption>
-    </div>
-    </figure>
+            */
+        }
 
+      </figure>
+
+      {/* Le modal (agrandissement) reste inchangé */}
       {open && (
         <div
           role="dialog"
