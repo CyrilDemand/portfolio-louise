@@ -1,5 +1,30 @@
 @import "tailwindcss";
 
+@theme {
+  --color-cream: #fdfcff;
+  --color-accent-50: #f6f2ff;
+  --color-accent-100: #ede6ff;
+  --color-accent-200: #ddd0ff;
+  --color-accent-300: #c4aeff;
+  --color-accent-400: #a78bfa;
+  --color-accent-500: #8b6df0;
+
+  --color-violet-clair: #C69DDE;
+  --color-lavande-pale: #E4DAE9;
+  
+  --color-bleu-pervenche: #9396EB;
+  --color-bleu-gris: #B5B6E2;
+  --color-indigo-sombre: #3D3B75;
+  
+  --color-bleu-ciel: #A2BCEF;
+  --color-bleu-moyen: #6484D4;
+  --color-bleu-marine: #2C427C;
+  
+  --color-rose-pastel: #F9C8D5;
+  --color-rose-moyen: #E99CB2;
+  --color-framboise: #DD4E69;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -20,21 +45,11 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--color-rose-pastel);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-@theme {
-  --color-cream: #fdfcff;
-  --color-accent-50: #f6f2ff;
-  --color-accent-100: #ede6ff;
-  --color-accent-200: #ddd0ff;
-  --color-accent-300: #c4aeff;
-  --color-accent-400: #a78bfa;
-  --color-accent-500: #8b6df0;
-}
 
 html {
   scroll-behavior: smooth;

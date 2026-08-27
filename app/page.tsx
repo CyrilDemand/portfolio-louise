@@ -8,8 +8,8 @@ import DrawingCard from "@/components/galery/DrawingCard";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen w-full justify-center">
-      <main className="w-full max-w-5xl px-4 py-10">
+    <div className="flex min-h-screen w-full justify-center bg-dusty-grape">
+      <main className="w-full max-w-5xl px-4 py-10 ">
         <h1 className="mb-8 text-center text-3xl font-semibold">
           Mon portfolio
         </h1>
