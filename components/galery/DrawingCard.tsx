@@ -32,38 +32,22 @@ export default function DrawingCard({ src, label, alt }: DrawingCardProps) {
 
   return (
     <>
-      {/* On a enlevé le padding et le fond. Juste un conteneur simple */}
       <figure className="group relative w-full flex flex-col gap-3 break-inside-avoid">
         <button
           type="button"
           onClick={() => setOpen(true)}
-          // On a enlevé aspect-[4/5] pour laisser la hauteur naturelle
           className="relative block w-full overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-framboise focus-visible:ring-offset-2 focus-visible:ring-offset-rose-pastel"
           aria-label={`Agrandir ${label}`}
         >
           <Image
             src={src}
             alt={alt ?? label}
-            // On a supprimé 'fill' et remplacé 'object-cover' par 'h-auto w-full'
             className="h-auto w-full transition duration-500 group-hover:scale-105"
-            placeholder={typeof src === "string" ? undefined : "blur"}
+            // MODIFICATION ICI 👇 : On vérifie que ce n'est pas une string ET qu'il y a bien un blurDataURL généré (ce qui exclut les .gif)
+            placeholder={typeof src !== "string" && src.blurDataURL ? "blur" : "empty"}
             sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 320px"
           />
         </button>
-
-        {
-            /*
-                    <figcaption className="text-center">
-          <p className="font-semibold tracking-wide text-indigo-sombre">
-            {label}
-          </p>
-          <p className="mt-1 text-xs text-indigo-sombre/70">
-            Illustration originale
-          </p>
-        </figcaption>
-            */
-        }
-
       </figure>
 
       {/* Le modal (agrandissement) reste inchangé */}
