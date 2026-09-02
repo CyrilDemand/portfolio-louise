@@ -31,14 +31,14 @@ import mavisSunny from "@/public/drawings/Mavis Sunny Halloween .png";
 import miraPortrait from "@/public/drawings/Mira Portrait .png";
 import nyalchimiste from "@/public/drawings/Nyalchimiste.png";
 import ocMagicalDoremi from "@/public/drawings/OC Magical Doremi.png";
-import ocMagicalDoremiZoom from "@/public/drawings/OC Magical Doremi Zoomé.png";
 import pantyEtKneesocks from "@/public/drawings/Panty et Kneesocks.png";
 import persoFireEmblemVampire from "@/public/drawings/Perso fire emblem vampire.png";
 import pokopiaPikapale from "@/public/drawings/Pokopia Pikapale.jpg"; // Doublon potentiel avec pikapale.jpg
 import rumi from "@/public/drawings/Rumi.png";
-import strykna from "@/public/drawings/Strykna.png";
 import zoeyPortrait from "@/public/drawings/Zoey Portrait.png";
 import zzzCissia from "@/public/drawings/ZZZ Cissia.png";
+import daisy from "@/public/drawings/Daisy.jpg";
+import marcille from "@/public/drawings/Marcille.jpg";
 
 
 export default function Home() {
@@ -51,6 +51,7 @@ export default function Home() {
 
           {/* COLONNE 1 */}
           <div className="flex flex-col gap-12">
+            <DrawingCard src={daisy} label="Daisy" />
             <DrawingCard src={Zhao} label="Zhao" />
             <DrawingCard src={fanArtStocking} label="Fan art Stocking" />
             <DrawingCard src={harmonieEtLuma} label="Harmonie et Luma" />
@@ -65,10 +66,10 @@ export default function Home() {
             <DrawingCard src={fanArtStocking2} label="Fan art Stocking 2" />
             <DrawingCard src={ineziaPolaroid} label="Inezia Polaroid" />
             <DrawingCard src={emotesFern} label="Emotes Fern Animation" />
-            <DrawingCard src={nyalchimiste} label="Nyalchimiste" />
             <DrawingCard src={pokopiaPikapale} label="Pokopia Pikapale" />
             <DrawingCard src={zzzCissia} label="ZZZ Cissia" />
             <DrawingCard src={celesteAcnh} label="Celeste ACNH" />
+            <DrawingCard src={nyalchimiste} label="Nyalchimiste" />
             <DrawingCard src={moi} label="Portrait" />
           </div>
 
@@ -88,6 +89,7 @@ export default function Home() {
           <div className="flex flex-col gap-12">
             <DrawingCard src={Roxie} label="Roxie" />
             <DrawingCard src={mavisSunny} label="Mavis Sunny Halloween" />
+            <DrawingCard src={marcille} label="Marcille" />
             <DrawingCard src={fanartPokemon} label="Fanart Pokemon" />
             <DrawingCard src={fireEmblemOlivia} label="Fire Emblem Olivia" />
             <DrawingCard src={fragiladyHisui} label="Fragilady Hisui" />
