@@ -40,8 +40,17 @@ import zzzCissia from "@/public/drawings/ZZZ Cissia.png";
 import daisy from "@/public/drawings/Daisy.jpg";
 import marcille from "@/public/drawings/Marcille.jpg";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Portfolio — Loupillion — Louise Pietrzyk",
+  description: "Illustratrice indépendante, personnages hauts en couleur.",
+};
 
 export default function Home() {
+
+
+
   return (
     <div className="flex min-h-screen w-full justify-center bg-rose-pastel">
       <main className="w-full max-w-[90%] px-4 py-10">

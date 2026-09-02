@@ -3,6 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import profilePicture from "@/public/drawings/pp_linkedin-1.png";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "À propos — Loupillion — Louise Pietrzyk",
+  description: "Illustratrice indépendante, personnages hauts en couleur.",
+};
+
 export default function About() {
   return (
     <main className="px-12 pb-24 md:px-28 md:pb-32">

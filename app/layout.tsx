@@ -19,6 +19,9 @@ const quicksand = Quicksand({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" suppressHydrationWarning>
+      <header>
+        <title>Loupillion - Louise Pietrzyk</title>
+      </header>
       <body
         className={`${quicksand.variable} relative flex min-h-screen flex-col font-sans bg-rose-pastel`}
       >
