@@ -1,69 +1,131 @@
+// app/about/page.tsx
 import Image from "next/image";
-import profilePicture from "@/public/drawings/pp_linkedin-1.png";
 import Link from "next/link";
+import profilePicture from "@/public/drawings/pp_linkedin-1.png";
 
 export default function About() {
   return (
-    <div className="flex min-h-[80vh] w-full items-center justify-center py-10">
-      <main className="flex w-full max-w-5xl flex-col items-center gap-12 px-6 md:flex-row md:gap-20">
-        
-        {/* COLONNE GAUCHE : Photo avec effet "Tache d'aquarelle" */}
-        <div className="relative flex w-full max-w-sm justify-center md:w-1/2 md:justify-end">
-          
-          {/* Tache de fond 1 (Mauve) */}
-          <div className="absolute -left-4 top-4 h-64 w-64 animate-pulse rounded-[40%_60%_70%_30%/40%_50%_60%_50%] bg-violet-200/60 mix-blend-multiply blur-2xl transition-all duration-1000 md:h-80 md:w-80" />
-          
-          {/* Tache de fond 2 (Fuchsia) */}
-          <div className="absolute -right-4 bottom-4 h-64 w-64 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] bg-fuchsia-200/50 mix-blend-multiply blur-2xl md:h-72 md:w-72" />
+    <main className="px-12 pb-24 md:px-28 md:pb-32">
+      {/* ---------- TITRE ---------- */}
+      <div className="mb-16 md:mb-24">
+        <h1 className="text-5xl md:text-7xl font-black leading-none tracking-tight text-indigo-sombre">
+          Coucou,
+          <br />
+          c'est <span className="text-framboise">Louise</span>
+        </h1>
+        <p className="mt-6 max-w-xl text-lg text-indigo-sombre/70">
+          Illustratrice indépendante, je créée des personnages, haut en couleurs et un
+          brin magiques.
+        </p>
+      </div>
 
-          {/* Photo de profil (Glassmorphism) */}
-          <div className="relative z-10 aspect-square w-64 overflow-hidden rounded-[2rem] border-[6px] border-white/80 bg-white/40 shadow-[0_20px_50px_rgba(139,92,246,0.15)] backdrop-blur-sm md:w-80 transition-transform duration-500 hover:scale-[1.02]">
+      {/* ---------- CONTENU ---------- */}
+      <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-24">
+        {/* COLONNE GAUCHE : PHOTO */}
+        <div className="relative aspect-square w-full max-w-sm self-start">
+          {/* Cadre décalé */}
+          <div className="absolute -bottom-4 -right-4 h-full w-full rounded-[2rem] border-2 border-framboise/40" />
+
+          <div className="relative h-full w-full overflow-hidden rounded-[2rem] bg-indigo-sombre/5">
             <Image
               src={profilePicture}
-              alt="Portrait de Louise"
+              alt="Portrait de Louise Pietrzyk"
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 256px, 320px"
+              sizes="(max-width: 1024px) 100vw, 400px"
               priority
             />
           </div>
         </div>
 
-        {/* COLONNE DROITE : Texte */}
-        <div className="flex w-full flex-col space-y-6 text-center md:w-1/2 md:text-left">
-          <div className="space-y-2">
-            <p className="text-sm font-bold tracking-widest text-violet-400 uppercase">
-              À propos de moi
-            </p>
-            <h1 className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-4xl font-extrabold text-transparent sm:text-5xl">
-              Coucou, c'est Louise ! ✧
-            </h1>
-          </div>
+        {/* COLONNE DROITE : TEXTE */}
+        <div className="flex flex-col gap-12">
+          {/* Bio */}
+          <section>
+            <h2 className="mb-4 text-sm font-bold uppercase tracking-widest text-indigo-sombre/60">
+              Mon univers
+            </h2>
+            <div className="space-y-4 text-lg leading-relaxed text-indigo-sombre/80">
+              <p>
+                J'aime donner vie à des personnages attachants et capturer
+                des <span className="text-framboise font-medium">émotions</span>.
+              </p>
+              <p>
+                Mon travail s'inspire beaucoup de la culture anime, des jeux
+                vidéo et de la fantasy. Mon but&nbsp;? Donner vie
+                à nos personnages fictifs préférés.
+              </p>
+            </div>
+          </section>
 
-          <div className="space-y-4 text-lg text-slate-500 leading-relaxed">
-            <p>
-              Je suis une illustratrice passionnée par la création d'univers doux,
-              chaleureux et un brin magiques. J'aime donner vie à des personnages 
-              attachants et capturer des instants "cozy".
-            </p>
-            <p>
-              Mon travail s'inspire beaucoup de la culture anime, des jeux vidéo
-              réconfortants et de la nature. Mon but ? Apporter un petit nuage
-              de douceur à ceux qui regardent mes dessins.
-            </p>
-          </div>
+          {/* Ce que je fais */}
+          <section>
+            <h2 className="mb-6 text-sm font-bold uppercase tracking-widest text-indigo-sombre/60">
+              Ce que je fais
+            </h2>
+            <ul className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
+              {[
+                "Illustration éditoriale",
+                "Character design",
+                "Couvertures & affiches",
+                "Identité visuelle",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-baseline gap-3 text-lg font-medium text-indigo-sombre"
+                >
+                  <span className="text-framboise">—</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
 
-          <div className="pt-4">
-            <Link 
+          {/* Outils */}
+          <section>
+            <h2 className="mb-6 text-sm font-bold uppercase tracking-widest text-indigo-sombre/60">
+              Mes outils
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {["Clip Studio Paint", "Aquarelle", "Feutre acrylique", "Feutre à alcool"].map(
+                (tool) => (
+                  <span
+                    key={tool}
+                    className="rounded-full border-2 border-indigo-sombre/15 px-4 py-1.5 text-sm font-medium text-indigo-sombre/70"
+                  >
+                    {tool}
+                  </span>
+                )
+              )}
+            </div>
+          </section>
+
+          {/* CTA */}
+          <div className="pt-2">
+            <Link
               href="/contact"
-              className="inline-block rounded-full bg-violet-100 px-8 py-3.5 font-bold text-violet-500 shadow-sm transition-all hover:-translate-y-1 hover:bg-violet-200 hover:shadow-md hover:shadow-violet-200/50"
+              className="group inline-flex items-center gap-3 text-2xl md:text-3xl font-black tracking-tight text-indigo-sombre transition-colors hover:text-framboise"
             >
-              Travaillons ensemble 💌
+              <span className="border-b-2 border-indigo-sombre pb-1 transition-colors group-hover:border-framboise">
+                Travaillons ensemble
+              </span>
+              <svg
+                className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
             </Link>
           </div>
         </div>
-
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
